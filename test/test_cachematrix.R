@@ -31,6 +31,19 @@ test_that("makeCacheMatrix(m) sets/gets the cached inverse", {
     expect_identical(x$getInverse(), im)
 })
 
+test_that("makeCacheMatrix(m)$set resets the cached inverse", {
+    x <- makeCacheMatrix()
+    
+    ## bogus inverse, just for unit testing
+    im <- matrix(1,1)
+    x$setInverse(im)
+    
+    m <- matrix(2,3)
+    x$set(m)
+
+    expect_identical(x$getInverse(), NULL)
+})
+
 test_that("cacheSolve(x) uses the cached inverse", {
     x <- makeCacheMatrix()
 

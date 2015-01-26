@@ -11,7 +11,7 @@ makeCacheMatrix <- function(x = matrix()) {
     ## cached inverse
     set <- function(y) {
         x <<- y
-        inv <- NULL
+        inv <<- NULL
     }
 
     ## Return the current matrix
